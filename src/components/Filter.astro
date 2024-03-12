@@ -1,0 +1,33 @@
+---
+import { type Categories } from '../core/interfaces/commerce.interface'
+import { setCategoriesArray } from '../core/libs/set-array'
+
+interface Props {
+    categories: Categories
+}
+
+const { categories } = Astro.props
+const categoriesArray = setCategoriesArray(categories)
+
+const cat = Astro.url.searchParams.get('cat')
+---
+
+<div class="py-5 flex flex-col gap-1">
+    <div class="flex flex-col gap-2">
+        <p class="text-base text-gray-700">Categorias</p>
+        <div class="overflow-x-auto flex flex-row gap-2">
+            <a href={`/`}
+                class={`text-sm bg-gray-100 rounded-full px-4 py-2 hover:cursor-pointer hover:bg-gray-200 ${cat == null ? 'bg-gray-300' : ''}`}>
+                todas
+            </a>
+            {
+                categoriesArray.map((category) => (
+                    <a href={`?cat=${category.name}`}
+                        class={`text-sm bg-gray-100 rounded-full px-4 py-2 hover:cursor-pointer hover:bg-gray-200 whitespace-nowrap ${category.name == cat ? 'bg-gray-300' : ''}`}>
+                        {category.name}
+                    </a>
+                ))
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+---
+import { type Items } from '../core/interfaces/commerce.interface'
+import { setItemsArray } from '../core/libs/set-array'
+
+interface Props {
+    items: Items
+}
+
+const { items } = Astro.props
+const itemsArray = setItemsArray(items)
+
+const cat = Astro.url.searchParams.get('cat')
+let filteredItems
+if (cat) {
+    filteredItems = itemsArray.filter((item) => item.category === cat)
+} else {
+    filteredItems = itemsArray
+}
+---
+
+<div class="py-5 md:py-10">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+        {
+            filteredItems.map((item) => (
+                <div class="border border-gray-500 rounded-md p-3 flex">
+                    <div class="flex flex-col justify-between">
+                        <div>
+                            <h2 class="font-medium">{item.name}</h2>
+                            <p class="text-sm text-gray-600 line-clamp-2">{item.description}</p>
+                        </div>
+                        <div>
+                            <span class="text-gray-500 text-sm">s/{item.price}</span>
+                        </div>
+                    </div>
+                </div>
+            ))
+        }
+    </div>
+</div>
