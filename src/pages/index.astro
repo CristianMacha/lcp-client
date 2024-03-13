@@ -4,15 +4,20 @@ import Filter from "../components/Filter.astro";
 import Items from "../components/Items.astro";
 import { type Commerce } from "../core/interfaces/commerce.interface";
 
-const url = Astro.url.host;
-const subDomain = url.split(".")[0];
-const domain = url.split(".")[1];
+let domain
+const url = Astro.url;
+const parts = url.host.split('.');
 
-console.log(subDomain, domain, url);
-
+if (url.hostname === 'localhost') {
+    domain = 'mi-restaurante';
+} else if (parts.length > 2) {
+    domain = parts[1];
+} else {
+    domain = parts[0];
+}
 
 const response = await fetch(
-    `http://lacartap.com/api/commerce/work-space?name=${'mi-restaurante'}`,
+    `${import.meta.env.URL_API}/commerce/work-space?name=${domain}`,
     { method: "GET" }
 );
 const data = await response.json();
