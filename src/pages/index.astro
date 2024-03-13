@@ -16,8 +16,6 @@ if (url.hostname === 'localhost') {
     domain = parts[1];
 }
 
-console.log(domain, url.host);
-
 const response = await fetch(
     `${import.meta.env.URL_API}/commerce/work-space?name=${domain}`,
     { method: "GET" }
@@ -76,6 +74,16 @@ const commerce: Commerce = data[key];
 				<div class="px-[1px]">
 					<Items items={commerce.items} />
 				</div>
+            </div>
+        </div>
+        <div class="fixed w-full bottom-0 bg-[#E09132]">
+            <div class="px-4 md:px-14 lg:px-48 py-2 flex flex-row justify-between gap-2 items-center">
+                <div class="text-sm">
+                    ¡Ofrece a tus clientes una experiencia moderna con un menú online! 
+                </div>
+                <div>
+                    <a href="https://lacartap.com" class="border border-white px-4 py-2">Descubrir</a>
+                </div>
             </div>
         </div>
     </main>
