@@ -9,7 +9,7 @@ const url = Astro.url;
 const parts = url.host.split('.');
 
 if (url.hostname === 'localhost') {
-    domain = 'mi-restaurante';
+    domain = 'restaurante-demo';
 } else if (parts.length > 2) {
     domain = parts[0];
 } else {
@@ -71,7 +71,7 @@ const commerce: Commerce = data[key];
                 <div class="sticky top-0 bg-white">
 					<Filter categories={commerce.categories} />
 				</div>
-				<div class="px-[1px]">
+				<div class="px-[1px] pb-5">
 					<Items items={commerce.items} />
 				</div>
             </div>
@@ -82,7 +82,7 @@ const commerce: Commerce = data[key];
                     ¡Ofrece a tus clientes una experiencia moderna con un menú online! 
                 </div>
                 <div>
-                    <a href="https://lacartap.com" class="border border-white px-4 py-2">Descubrir</a>
+                    <a href="https://lacartap.com" class="border border-white px-2 py-1">Descubrir</a>
                 </div>
             </div>
         </div>
