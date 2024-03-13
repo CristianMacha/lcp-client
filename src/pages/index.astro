@@ -11,9 +11,9 @@ const parts = url.host.split('.');
 if (url.hostname === 'localhost') {
     domain = 'mi-restaurante';
 } else if (parts.length > 2) {
-    domain = parts[1];
-} else {
     domain = parts[0];
+} else {
+    domain = parts[1];
 }
 
 console.log(domain, url.host);
