@@ -16,6 +16,8 @@ if (url.hostname === 'localhost') {
     domain = parts[0];
 }
 
+console.log(domain, url.host);
+
 const response = await fetch(
     `${import.meta.env.URL_API}/commerce/work-space?name=${domain}`,
     { method: "GET" }
