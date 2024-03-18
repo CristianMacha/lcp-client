@@ -34,6 +34,13 @@ const commerce: Commerce = data[key];
                     style={{ backgroundImage: `url(${commerce.portada})` }}
                 >
                 </div>
+                {
+                    !commerce.premium && (
+                        <a href="https://lacartap.com" target="_blank" class="fixed top-2 right-2 md:right-16 lg:right-52 bg-[#E09132] px-2 py-1 rounded-lg underline border">
+                            quieres una carta como esta?
+                        </a>
+                    )
+                }
             </div>
             <div class="px-4 md:px-10 lg:px-20 -mt-14 md:-mt-20">
                 <div class="w-full py-2 md:py-4">
@@ -74,16 +81,6 @@ const commerce: Commerce = data[key];
 				<div class="px-[1px] pb-5">
 					<Items items={commerce.items} />
 				</div>
-            </div>
-        </div>
-        <div class="fixed w-full bottom-0 bg-[#E09132]">
-            <div class="px-4 md:px-14 lg:px-48 py-2 flex flex-row justify-between gap-2 items-center">
-                <div class="text-sm">
-                    ¡Ofrece a tus clientes una experiencia moderna con un menú online! 
-                </div>
-                <div>
-                    <a href="https://lacartap.com" class="border border-white px-2 py-1">Descubrir</a>
-                </div>
             </div>
         </div>
     </main>

@@ -8,6 +8,7 @@ export interface Commerce {
 	items: Items;
 	active: boolean;
 	workspace: string;
+    premium: boolean;
 }
 
 export type Items = {
