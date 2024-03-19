@@ -7,7 +7,7 @@ interface Props {
 }
 
 const { items } = Astro.props
-const itemsArray = setItemsArray(items)
+const itemsArray = setItemsArray(items || [])
 
 const cat = Astro.url.searchParams.get('cat')
 let filteredItems

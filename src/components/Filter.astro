@@ -7,7 +7,7 @@ interface Props {
 }
 
 const { categories } = Astro.props
-const categoriesArray = setCategoriesArray(categories)
+const categoriesArray = setCategoriesArray(categories || [])
 
 const cat = Astro.url.searchParams.get('cat')
 ---
