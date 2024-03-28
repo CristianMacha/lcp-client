@@ -1,5 +1,4 @@
 export interface Commerce {
-    id: string;
     name: string;
     description: string;
     portada: string;
@@ -24,6 +23,8 @@ export interface Category {
 }
 
 export interface Item {
+    _id: string;
+    imageUrl: string;
     name: string;
     description: string;
     price: number;
