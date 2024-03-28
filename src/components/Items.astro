@@ -19,7 +19,7 @@ if (cat) {
 ---
 
 <div class="py-5 md:py-10">
-    <div class="columns-1 md:columns-2 lg:columns-3 gap-3">
+    <div class="columns-1 md:columns-2 lg:columns-3 gap-4">
         {
             filteredItems.map((item) => (
                 <div class="border border-gray-500 rounded-md flex flex-col mb-4" style="break-inside: avoid;">
@@ -31,10 +31,11 @@ if (cat) {
                     <div class="flex flex-col justify-between p-4">
                         <div>
                             <h2 class="font-medium">{item.name}</h2>
-                            <p class="text-sm text-gray-600 line-clamp-2">{item.description}</p>
+                            <p class="text-sm text-gray-500 line-clamp-3">{item.description}</p>
                         </div>
-                        <div>
-                            <span class="text-gray-500 text-sm">s/{item.price}</span>
+                        <div class="flex justify-between gap-2 flex-wrap items-center mt-2">
+                            <span class="text-[#e09132] font-medium text-sm">s/{item.price}</span>
+                            <span class="text-xs text-gray-500 bg-gray-100 px-2 rounded-full">{item.category}</span>
                         </div>
                     </div>
                 </div>
